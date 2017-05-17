@@ -34,4 +34,6 @@ body{
     background: -moz-linear-gradient(right, rgba(100,181,246,1), rgba(30,136,229,1)); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, rgba(100,181,246,1), rgba(30,136,229,1)); /* Standard syntax (must be last) */
 }
+
+
 </style>
