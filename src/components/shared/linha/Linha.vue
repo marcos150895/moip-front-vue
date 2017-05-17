@@ -47,6 +47,11 @@
 
 }
 
+@media (min-width: 600px) {
+  #linha_tabela, #linha_tabela #status img, #linha_tabela #codigo,#meio_pagamento,
+  #meio_pagamento img, #linha_tabela #valor, #linha_tabela #atualizado, #linha_tabela #cliente { float: left; }
+}
+
 #linha #status{
 
   width: 8%;
@@ -58,19 +63,17 @@
   height: 1em;
   margin-left: 1em;
   margin-top: 0.8em;
-  float:left;
 }
 
 #linha_tabela #codigo{
   width: 25%;
   margin-left:1em;
-  float:left;
 }
 
 #linha_tabela #meio_pagamento{
 
   width: 5%;
-  float: left;
+
 }
 
 #linha_tabela #meio_pagamento img{
@@ -80,14 +83,13 @@
   margin-left: 0.5em;
   margin-right: 0.5em;
   margin-top: 0.8em;
-  float:left;
+
 }
 
 #linha_tabela #valor{
 
   width: 12%;
   margin-left:1em;
-  float:left;
 
 }
 
@@ -95,7 +97,7 @@
 
   width: 20%;
   margin-left:1em;
-  float:left;
+
 
 
 }
@@ -104,7 +106,6 @@
 
   width: 20%;
   margin-left:1em;
-  float:left;
   border-left-color: purple;
   border-style:dashed;
   border-top: none;
