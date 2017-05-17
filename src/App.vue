@@ -19,7 +19,7 @@ export default {
 <style>
 #app {
   font-family: Quicksand;
-	font-size: 1.25em;
+	font-size: 1em;
 	font-style: normal;
 	font-variant: normal;
   -webkit-font-smoothing: antialiased;
