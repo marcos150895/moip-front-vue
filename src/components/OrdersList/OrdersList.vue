@@ -8,7 +8,7 @@
 
     <linha status="http://www.freeiconspng.com/uploads/blue-check-icon-13.png" codigo="AVSFSX-PAY"
     meio_pagamento="http://icons.iconarchive.com/icons/iconsmind/outline/512/Credit-Card-2-icon.png"
-    valor="178,00" atualizado="2017-08-08 17h20" cliente="marcolino"></linha>
+    valor="178,00" atualizado="2017-08-08 17h20" nome="marcolino" email="mar"></linha>
   </div>
 </template>
 
