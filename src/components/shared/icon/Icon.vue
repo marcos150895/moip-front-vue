@@ -12,12 +12,19 @@
 
 </script>
 <style scoped>
-  .icon-credit-card:before {
 
+  .icon-credit-card:before {
+    content: "\e900";
+    color: #7C259A;
+    float:left;
+  }
+
+   @media (min-width: 600px) {
+    .icon-credit-card:before {
     content: "\e900";
     float: left;
-    margin-top: 1.5%;
     color: #7C259A;
+    }
   }
 
 </style>
