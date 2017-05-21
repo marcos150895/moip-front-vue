@@ -6,7 +6,7 @@
 
 <script>
   import OrdersList from './components/OrdersList/OrdersList'
-  
+
   export default {
     name: 'app',
     components: {
@@ -25,7 +25,7 @@
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
   }
-  
+
   body {
     background: -webkit-linear-gradient(left, rgba(100, 181, 246, 1), rgba(30, 136, 229, 1));
     /* For Safari 5.1 to 6.0 */
