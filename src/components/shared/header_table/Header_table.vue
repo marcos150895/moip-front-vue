@@ -1,22 +1,22 @@
 <template>
   <div id="linha_tabela">
     <div id="status">
-      <a @click="ordenar('status')" style="cursor: pointer;"> Status </a>
+      <a @click="ordenar('status')" class="ponteiro"> Status </a>
      </div>
     <div id="codigo" class="linha alinhar_esquerda">
-      Código
+       <a @click="ordenar('id')" class="ponteiro"> Código </a>
     </div>
     <div id="icone_pag" class="">
-      Meio
+       <a @click="ordenar('status')" class="ponteiro"> Meio </a>
     </div>
     <div id="meio_pagamento" class="linha ">
-      R$
+       <a @click="ordenar('status')" class="ponteiro"> R$ </a>
     </div>
     <div id="atualizado" class="linha">
-      Atualizado
+      <a @click="ordenar('status')" class="ponteiro"> atualizado </a>
     </div>
     <div id="atualizado" class="linha">
-      Cliente
+      <a @click="ordenar('status')" class="ponteiro"> Cliente </a>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   methods: {
 
     ordenar(event) {
-      alert(event);
+      this.$emit('ordenar-tabela', event);
     }
   }
 }
@@ -44,6 +44,10 @@ export default {
     margin-left: 5%;
   }
 
+  .ponteiro{
+    cursor: pointer;
+  }
+  
   @media (min-width: 600px) {
     #linha_tabela,
     #linha_tabela #codigo,

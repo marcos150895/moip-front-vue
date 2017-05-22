@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <campo-valor :argumento1="orders.orders.length" argumento2="Santana" icone="">
+    <campo-valor :argumento1="20" argumento2="Santana" icone="">
     </campo-valor>
-
+  
     <div id="line_separator">
     </div>
     <!-- Fazer tratamento do amount e icons tratamento da data-->
-    <header-table></header-table>
+    <header-table v-on:ordenar-tabela="ordenar_tabela"></header-table>
     <linha v-for="order in order_by" status="http://www.freeiconspng.com/uploads/blue-check-icon-13.png" :codigo="order.id" meio_pagamento="http://icons.iconarchive.com/icons/iconsmind/outline/512/Credit-Card-2-icon.png" :valor="order.amount.total" :atualizado="order.createdAt"
       nome="Marcos Santana" email="mar"></linha>
   </div>
@@ -16,12 +16,12 @@
   import CampoValor from '../shared/campoValor/CampoValor.vue';
   import Linha from '../shared/linha/Linha.vue'
   import Header_table from '../shared/header_table/Header_table.vue'
-
+  
   export default {
     name: 'orderslist',
-
+  
     components: {
-
+  
       'campo-valor': CampoValor,
       'linha': Linha,
       'header-table': Header_table
@@ -29,12 +29,14 @@
     data() {
       return {
         msg: '2345 Pedidos encontrados ',
-        orders: []
+        orders: [],
+        table_ordenacao: 'asc',
+        table_campo: 'orders.amount'
       }
     },
-
+  
     created() {
-
+  
       this.$http.get('https://sandbox.moip.com.br/v2/orders', {
           headers: {
             Authorization: 'OAuth dd367807ccfa4c44a4e74fa35f8c04b5_v2'
@@ -42,13 +44,21 @@
         })
         .then(res => res.json())
         .then(orders => this.orders = orders, err => console.log(err));
-
+  
     },
     computed: {
       order_by() {
-        return _.orderBy(this.orders.orders, 'orders.amount');
-      },
-    }
+        return _.orderBy(this.orders.orders, this.table_campo, this.table_ordenacao);
+      }
+    },
+  
+    methods: {
+      ordenar_tabela() {
+        //implementar-vuex para colcoar esse dado no geral e depois atualizar via esse emit
+        console.log(event);
+      }
+    },
+  
   }
 </script>
 
@@ -62,14 +72,14 @@
     font-weight: normal;
     text-align: center;
   }
-
+  
   .container {
     width: 80%;
     margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
   }
-
+  
   #line_separator {
     border-bottom-color: white;
     border-style: solid;
