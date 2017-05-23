@@ -7,16 +7,16 @@
        <a @click="ordenar('id')" class="ponteiro"> Código </a>
     </div>
     <div id="icone_pag" class="">
-       <a @click="ordenar('status')" class="ponteiro"> Meio </a>
+       <a @click="ordenar('payments.fundingInstrument.method')" class="ponteiro"> Meio </a>
     </div>
     <div id="meio_pagamento" class="linha ">
-       <a @click="ordenar('status')" class="ponteiro"> R$ </a>
+       <a @click="ordenar('amount.total')" class="ponteiro"> R$ </a>
     </div>
     <div id="atualizado" class="linha">
-      <a @click="ordenar('status')" class="ponteiro"> atualizado </a>
+      <a @click="ordenar('updatedAt')" class="ponteiro"> atualizado </a>
     </div>
     <div id="atualizado" class="linha">
-      <a @click="ordenar('status')" class="ponteiro"> Cliente </a>
+      <a @click="ordenar('customer.fullname')" class="ponteiro"> Cliente </a>
     </div>
   </div>
 </template>
@@ -27,6 +27,15 @@ export default {
   methods: {
 
     ordenar(event) {
+      const { table_ordenacao, table_campo } = this.$store.state.ordenacao
+      this.aux = table_ordenacao == 'desc' ? 'asc' : 'desc';
+      console.log(this.aux);
+
+      const payload = {
+        table_ordenacao: this.aux,
+        table_campo: event
+      }
+      this.$store.commit('CHANGE_ORDENATION', payload)
       this.$emit('ordenar-tabela', event);
     }
   }
@@ -47,7 +56,13 @@ export default {
   .ponteiro{
     cursor: pointer;
   }
-  
+
+  @media(max-width: 600px) {
+    #linha_tabela {
+      display:none ;
+    }
+  }
+
   @media (min-width: 600px) {
     #linha_tabela,
     #linha_tabela #codigo,

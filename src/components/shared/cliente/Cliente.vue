@@ -4,10 +4,10 @@
       MS
     </div>
     <div class="detalhes">
-      {{nome}}
+      {{formatarNome}}
     </div>
     <div class="email">
-      {{email}}
+      {{formatarEmail}}
     </div>
 
   </div>
@@ -16,7 +16,19 @@
 <script>
   export default {
 
-    props: ['nome', 'foto', 'email']
+    props: ['nome', 'foto', 'email'],
+
+    computed:{
+
+       formatarNome(){
+          return `${this.nome.substring(0, 14)}..`
+      },
+
+      formatarEmail(){
+
+        return `${this.email.substring(0,12)}..`;
+      }
+    }
   }
 </script>
 

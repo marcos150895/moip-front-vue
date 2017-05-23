@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'moip';
+  src:  url('fonts/moip.eot?utqmmj');
+  src:  url('fonts/moip.eot?utqmmj#iefix') format('embedded-opentype'),
+    url('fonts/moip.ttf?utqmmj') format('truetype'),
+    url('fonts/moip.woff?utqmmj') format('woff'),
+    url('fonts/moip.svg?utqmmj#moip') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'moip' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-credit-card:before {
+  content: "\e900";
+}
+.icon-debit-card:before {
+  content: "\e901";
+}
+.icon-double-arrows-down:before {
+  content: "\e902";
+}
+.icon-label-atention:before {
+  content: "\e903";
+}
+.icon-label-check:before {
+  content: "\e904";
+}
+.icon-label-empty:before {
+  content: "\e905";
+}
+.icon-label-error:before {
+  content: "\e906";
+}
+.icon-label-loading:before {
+  content: "\e907";
+}
+.icon-label-waiting:before {
+  content: "\e908";
+}
+.icon-bar-codel:before {
+  content: "\1f313";
+}
