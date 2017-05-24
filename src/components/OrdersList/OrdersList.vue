@@ -1,18 +1,17 @@
 <template>
   <div class="container">
-    <campo-valor :argumento1="20" argumento2="Santana" icone="">
+    <campo-valor :argumento1="orders.orders.length" argumento2="123.00">
     </campo-valor>
+
 
     <div id="line_separator">
     </div>
     <!-- Fazer tratamento do amount e icons tratamento da data-->
     <header-table v-on:ordenar-tabela="ordenar_tabela"></header-table>
-    <linha v-for="order in order_by" status="http://www.freeiconspng.com/uploads/blue-check-icon-13.png"
-    :codigo="order.id" meio_pagamento="http://icons.iconarchive.com/icons/iconsmind/outline/512/Credit-Card-2-icon.png"
-    :valor="order.amount.total"
-    :atualizado="order.updatedAt"
-    :nome="order.customer.fullname"
-    :email="order.customer.email"></linha>
+    <linha v-for="order in order_by" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname" :email="order.customer.email"></linha>
+
+
+    <!-- footer criar -->
   </div>
 </template>
 
@@ -20,6 +19,7 @@
   import CampoValor from '../shared/campoValor/CampoValor.vue';
   import Linha from '../shared/linha/Linha.vue'
   import Header_table from '../shared/header_table/Header_table.vue'
+  import Export_button from '../shared/export_button/Export_button.vue'
 
   export default {
     name: 'orderslist',
@@ -28,7 +28,8 @@
 
       'campo-valor': CampoValor,
       'linha': Linha,
-      'header-table': Header_table
+      'header-table': Header_table,
+      'export-button': Export_button
     },
     data() {
       return {
@@ -59,7 +60,10 @@
     methods: {
       ordenar_tabela() {
         console.log(this.orders.orders)
-        const { table_ordenacao, table_campo } = this.$store.state.ordenacao
+        const {
+          table_ordenacao,
+          table_campo
+        } = this.$store.state.ordenacao
         this.table_ordenacao = table_ordenacao
         this.table_campo = table_campo
       }
@@ -87,10 +91,22 @@
   }
 
   #line_separator {
+    width: 107%;
     border-bottom-color: white;
     border-style: solid;
     border-top: none;
     border-left: none;
     border-right: none;
+  }
+
+  @media(min-width: 600px) {
+    #line_separator {
+      width: 100%;
+      border-bottom-color: white;
+      border-style: solid;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
   }
 </style>

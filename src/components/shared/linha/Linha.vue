@@ -1,7 +1,7 @@
 <template>
   <div id="linha_tabela">
     <div id="status" class="alinhar_esquerda">
-      <icone></icone>
+      <icone :status="status" escolha="status"></icone>
     </div>
     <div id="codigo" class="linha alinhar_esquerda">
       {{codigo}}
@@ -10,7 +10,7 @@
       <br>
     </div>
     <div id="icone_pag" class="alinhar_esquerda">
-      <icone></icone>
+      <icone :status="meio_pagamento" escolha="pagamento"></icone>
     </div>
     <div id="meio_pagamento" class="linha alinhar_esquerda">
       {{formatarAmount}}
@@ -21,8 +21,8 @@
     <div id="habilitado_br">
       <br>
     </div>
-    <div id="cliente" class="linha">
-      <!-- componente -->
+    <!-- componente  hidden do botão esconder cliente-->
+    <div id="cliente" class="linha" v-if="1 < 2">
       <cliente :nome="nome" :email="email"></cliente>
     </div>
   </div>
@@ -46,11 +46,11 @@
       //fazer metodos para saber qual icone pelo status (agora fazer no componente de icone)
       formatarData() {
         return `${this.atualizado.substring(8,10)}/${this.atualizado.substring(5,7)}/${this.atualizado.substring(2,4)}
-         - ${this.atualizado.substring(11,13)}h${this.atualizado.substring(14,16)}`;
+             - ${this.atualizado.substring(11,13)}h${this.atualizado.substring(14,16)}`;
       },
 
-      formatarAmount(){
-          return `${this.valor}`;
+      formatarAmount() {
+        return `${this.valor}`;
       }
     }
   }
@@ -81,7 +81,6 @@
   }
 
   #linha_tabela #codigo {
-    width: 20%;
     margin-left: 1em;
     float: left;
   }
@@ -192,6 +191,20 @@
   @media(min-width: 600px) {
     #linha_tabela #habilitado_br {
       display: none;
+    }
+  }
+
+  @media(min-width: 600px) {
+    .alinhar_esquerda {
+      margin-left: 1%;
+    }
+  }
+
+  @media(min-width: 600px) {
+    #linha_tabela #codigo {
+      width:16%;
+      margin-left: 1em;
+      float: left;
     }
   }
 </style>

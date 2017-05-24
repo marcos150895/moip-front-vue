@@ -1,35 +1,55 @@
 <template>
   <div>
-    <span class="icon icon-bar-codel"></span>
+    <span :class="escolher_icone"></span>
   </div>
 </template>
 
 <script>
   export default {
 
-    props: ['url', 'color']
+    props: ['status', 'color', 'escolha'],
+
+    computed: {
+
+      escolher_icone() {
+
+        if (this.escolha == 'status') {
+          return this.status == 'PAID' ? 'icon icon-label-check estilo' : 'icon icon-label-error estilo';
+        } else if (this.escolha == 'pagamento') {
+          if (this.status == 'CREDIT_CARD')
+            return 'icon icon-credit-card estilo';
+          else if (this.status == 'BOLETO')
+            return 'icon icon-bar-codel estilo';
+        } else {
+          return 'icon icon-label-empty estilo'
+        }
+      }
+    }
   }
 </script>
 
 <style scoped>
+
+  .estilo {
+    float: left;
+    margin-top: 0.5em;
+  }
+
+  @media (min-width: 600px) {
+    .estilo {
+      float: left;
+      margin-top: 1.25em;
+    }
+  }
+
   .icon-credit-card:before {
     content: "\e900";
     color: #7C259A;
-    float: left;
   }
 
   .icon-bar-codel:before {
     content: "\1f313";
     color: #7C259A;
-    float:left;
-  }
-
-  @media (min-width: 600px) {
-    .icon-credit-card:before {
-      content: "\e900";
-      float: left;
-      color: #7C259A;
-    }
   }
 
   @font-face {
@@ -41,7 +61,6 @@
   }
 
   .icon {
-    /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'moip' !important;
     speak: none;
     font-style: normal;
@@ -49,7 +68,6 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    /* Enable Ligatures ================ */
     letter-spacing: 0;
     -webkit-font-feature-settings: "liga";
     -moz-font-feature-settings: "liga=1";
@@ -58,7 +76,6 @@
     font-feature-settings: "liga";
     -webkit-font-variant-ligatures: discretionary-ligatures;
     font-variant-ligatures: discretionary-ligatures;
-    /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -81,6 +98,7 @@
 
   .icon-label-check:before {
     content: "\e904";
+    color: #0000CD;
   }
 
   .icon-label-empty:before {
@@ -88,6 +106,7 @@
   }
 
   .icon-label-error:before {
+    margin-top: 1.3em;
     content: "\e906";
   }
 
@@ -98,5 +117,4 @@
   .icon-label-waiting:before {
     content: "\e908";
   }
-
 </style>

@@ -7,7 +7,7 @@
        <a @click="ordenar('id')" class="ponteiro"> Código </a>
     </div>
     <div id="icone_pag" class="">
-       <a @click="ordenar('payments.fundingInstrument.method')" class="ponteiro"> Meio </a>
+       <a @click="ordenar('payments[0].fundingInstrument.method')" class="ponteiro"> Meio </a>
     </div>
     <div id="meio_pagamento" class="linha ">
        <a @click="ordenar('amount.total')" class="ponteiro"> R$ </a>
