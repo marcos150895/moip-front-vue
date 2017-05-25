@@ -1,15 +1,13 @@
 <template>
   <div class="container">
-    <campo-valor :argumento1="orders.orders.length" argumento2="123.00">
-    </campo-valor>
-
-
+    <campo-valor :argumento1="orders.orders.length" argumento2="123.00"></campo-valor>
+    <export-button></export-button>
     <div id="line_separator">
     </div>
-    <!-- Fazer tratamento do amount e icons tratamento da data-->
     <header-table v-on:ordenar-tabela="ordenar_tabela"></header-table>
-    <linha v-for="order in order_by" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname" :email="order.customer.email"></linha>
 
+    <!-- key é obrigatorio pois é chave unic para o vfor-->
+    <linha v-for="order in order_by" :key="order.id" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname" :email="order.customer.email"></linha>
 
     <!-- footer criar -->
   </div>
@@ -33,7 +31,6 @@
     },
     data() {
       return {
-        msg: '2345 Pedidos encontrados ',
         orders: [],
         table_ordenacao: 'asc',
         table_campo: 'amount.total'
@@ -85,7 +82,7 @@
 
   .container {
     width: 80%;
-    margin-top: 5%;
+    margin-top: 20%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -97,6 +94,16 @@
     border-top: none;
     border-left: none;
     border-right: none;
+    margin-top: 7em;
+  }
+
+  @media(min-width: 600px) {
+    .container {
+      width: 80%;
+      margin-top: 5%;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   @media(min-width: 600px) {
@@ -107,6 +114,8 @@
       border-top: none;
       border-left: none;
       border-right: none;
+      margin-top: 2em;
+      float: left;
     }
   }
 </style>

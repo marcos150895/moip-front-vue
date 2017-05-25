@@ -46,11 +46,11 @@ export default {
 
 
   .linha {
-    min-width: 150px;
+    min-width: 8em;
   }
 
   .alinhar_esquerda {
-    margin-left: 5%;
+    margin-left: 2em;
   }
 
   .ponteiro{

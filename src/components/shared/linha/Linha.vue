@@ -69,7 +69,7 @@
   }
 
   .linha {
-    min-width: 150px;
+    min-width: 12em;
   }
 
   .alinhar_esquerda {
@@ -77,7 +77,6 @@
   }
 
   #linha_tabela #status {
-    width: 6%;
   }
 
   #linha_tabela #codigo {
@@ -86,24 +85,20 @@
   }
 
   #linha #icone_pag {
-    width: 4%;
     padding-left: 1em;
   }
 
   #linha_tabela #meio_pagamento {
-    width: 4%;
     position: relative;
     float: left;
     min-width: 50px
   }
 
   #linha_tabela #valor {
-    width: 4%;
     margin-left: 1.5em;
   }
 
   #linha_tabela #atualizado {
-    width: 20%;
     margin-left: 1em;
     float: left;
   }
@@ -147,7 +142,7 @@
 
   @media (min-width: 600px) {
     #linha_tabela #cliente {
-      width: 20%;
+      width: 30%;
       margin-left: 1em;
       border-left-color: rgba(137, 76, 171, 0.5);
       border-style: dotted;
@@ -162,28 +157,24 @@
 
   @media(min-width: 600px) {
     #linha_tabela #meio_pagamento {
-      width: 10%;
       margin-left: 1em;
     }
   }
 
   @media(min-width: 600px) {
     #linha_tabela #valor {
-      width: 10%;
       margin-left: 1.5em;
     }
   }
 
   @media(min-width: 600px) {
     #linha_tabela #atualizado {
-      width: 20%;
       margin-left: 1em;
     }
   }
 
   @media(min-width: 600px) {
     #linha_tabela #status {
-      width: 6%;
       padding-left: 1em;
     }
   }
@@ -202,8 +193,8 @@
 
   @media(min-width: 600px) {
     #linha_tabela #codigo {
-      width:16%;
       margin-left: 1em;
+      margin-right: 1em;
       float: left;
     }
   }

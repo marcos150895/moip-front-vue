@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="container">
     <div id="texto">{{ argumento1 }} pedidos encontrados | No valor total de {{argumento2}}</div>
   </div>
 </template>
@@ -17,22 +17,32 @@
 
 <style scoped>
   .container {
-
-  }
-
-  h3 {
-    color: #0D47A1;
+    width: 80%;
   }
 
   #texto {
     font-size: 1em;
     margin-bottom: 1em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     text-align: left;
   }
 
-  #texto img {
-    width: 1em;
-    height: 1em;
-    color: white;
+  @media(min-width: 600px) {
+    .container {
+      float: left;
+      width: 60%;
+    }
+  }
+
+  @media(min-width: 600px) {
+    #texto {
+      font-size: 1em;
+      margin-bottom: 1em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: left;
+      float: left;
+    }
   }
 </style>

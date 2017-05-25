@@ -26,6 +26,36 @@
     color: #2c3e50;
   }
 
+  @media(min-width: 600px) {
+    #app {
+      font-size: 1em;
+    }
+  }
+
+  @media(min-width: 601px) {
+    #app {
+      font-size: 0.65em;
+    }
+  }
+
+  @media(min-width: 820px) {
+    #app {
+      font-size: 0.75em;
+    }
+  }
+
+  @media(min-width: 850px) {
+    #app {
+      font-size: 0.80em;
+    }
+  }
+
+  @media(min-width:1100px) {
+    #app {
+      font-size: 1em;
+    }
+  }
+
   body {
     background: -webkit-linear-gradient(left, rgba(100, 181, 246, 1), rgba(30, 136, 229, 1));
     /* For Safari 5.1 to 6.0 */
