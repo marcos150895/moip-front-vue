@@ -15,6 +15,7 @@
 
 <script>
   export default {
+    name: 'cliente',
 
     props: ['nome', 'foto', 'email'],
 

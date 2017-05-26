@@ -2,12 +2,14 @@
   <div class="container">
     <campo-valor :argumento1="orders.orders.length" argumento2="123.00"></campo-valor>
     <export-button></export-button>
+    <hidden v-on:esconder="visualizar" class="hidden"></hidden>
     <div id="line_separator">
     </div>
     <header-table v-on:ordenar-tabela="ordenar_tabela"></header-table>
 
     <!-- key é obrigatorio pois é chave unic para o vfor-->
-    <linha v-for="order in order_by" :key="order.id" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname" :email="order.customer.email"></linha>
+    <linha v-for="order in order_by" :key="order.id" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname" :email="order.customer.email"
+      :esconde="visualiza"></linha>
 
     <!-- footer criar -->
   </div>
@@ -18,6 +20,7 @@
   import Linha from '../shared/linha/Linha.vue'
   import Header_table from '../shared/header_table/Header_table.vue'
   import Export_button from '../shared/export_button/Export_button.vue'
+  import Hidden_button from '../shared/hidden_button/Hidden_button.vue'
 
   export default {
     name: 'orderslist',
@@ -27,13 +30,15 @@
       'campo-valor': CampoValor,
       'linha': Linha,
       'header-table': Header_table,
-      'export-button': Export_button
+      'export-button': Export_button,
+      'hidden': Hidden_button
     },
     data() {
       return {
         orders: [],
         table_ordenacao: 'asc',
-        table_campo: 'amount.total'
+        table_campo: 'amount.total',
+        visualiza: true
       }
     },
 
@@ -56,15 +61,15 @@
 
     methods: {
       ordenar_tabela() {
-        console.log(this.orders.orders)
-        const {
-          table_ordenacao,
-          table_campo
-        } = this.$store.state.ordenacao
+        const { table_ordenacao, table_campo } = this.$store.state.ordenacao
         this.table_ordenacao = table_ordenacao
         this.table_campo = table_campo
+      },
+      visualizar() {
+        const { value } = this.$store.state.estado_cliente
+        this.visualiza = value
       }
-    },
+    }
 
   }
 </script>
@@ -82,7 +87,7 @@
 
   .container {
     width: 80%;
-    margin-top: 20%;
+    margin-top: 1em;
     margin-left: auto;
     margin-right: auto;
   }
@@ -94,7 +99,7 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    margin-top: 7em;
+    margin-top: 6em;
   }
 
   @media(min-width: 600px) {
@@ -103,6 +108,12 @@
       margin-top: 5%;
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+
+  @media(min-width: 600px) {
+    .container .hidden {
+      display: none;
     }
   }
 

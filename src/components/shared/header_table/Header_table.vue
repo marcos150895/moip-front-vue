@@ -24,6 +24,8 @@
 <script>
 export default {
 
+  name: 'headerTable',
+
   methods: {
 
     ordenar(event) {

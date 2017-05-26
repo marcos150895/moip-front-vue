@@ -22,7 +22,7 @@
       <br>
     </div>
     <!-- componente  hidden do botão esconder cliente-->
-    <div id="cliente" class="linha" v-if="1 < 2">
+    <div id="cliente" class="linha" v-if="esconde">
       <cliente :nome="nome" :email="email"></cliente>
     </div>
   </div>
@@ -34,19 +34,21 @@
 
   export default {
 
+    name: 'linha',
+
     components: {
 
       'icone': Icon,
       'cliente': Cliente
     },
 
-    props: ['status', 'codigo', 'meio_pagamento', 'valor', 'atualizado', 'nome', 'email'],
+    props: ['status', 'codigo', 'meio_pagamento', 'valor', 'atualizado', 'nome', 'email', 'esconde'],
 
     computed: {
       //fazer metodos para saber qual icone pelo status (agora fazer no componente de icone)
       formatarData() {
         return `${this.atualizado.substring(8,10)}/${this.atualizado.substring(5,7)}/${this.atualizado.substring(2,4)}
-             - ${this.atualizado.substring(11,13)}h${this.atualizado.substring(14,16)}`;
+               - ${this.atualizado.substring(11,13)}h${this.atualizado.substring(14,16)}`;
       },
 
       formatarAmount() {
@@ -76,8 +78,7 @@
     margin-left: 5%;
   }
 
-  #linha_tabela #status {
-  }
+  #linha_tabela #status {}
 
   #linha_tabela #codigo {
     margin-left: 1em;

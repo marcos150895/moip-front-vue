@@ -6,28 +6,23 @@
     <div class="texto">
       <label>EXPORTAR PLANILHA </label>
     </div>
-
   </div>
 </template>
 
 <script>
+  export default {
+    name: 'export',
 
+  }
 </script>
 
 <style scoped>
   .container {
-    width: 40%;
+    padding-left: 10%;
   }
 
   .container .imagem {
     float: left;
-  }
-
-  @media(min-width: 600px) {
-    .container {
-      float: left;
-      width: 40%;
-    }
   }
 
   .container .imagem img {
@@ -36,7 +31,14 @@
   }
 
   .container .texto {
-    float: left;
     margin-top: 0.3em;
+  }
+
+  @media(min-width: 600px) {
+    .container {
+      float: left;
+      width: 40%;
+      padding-left: 0%;
+    }
   }
 </style>
