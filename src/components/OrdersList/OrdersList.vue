@@ -8,10 +8,16 @@
     <header-table v-on:ordenar-tabela="ordenar_tabela"></header-table>
 
     <!-- key é obrigatorio pois é chave unic para o vfor-->
-    <linha v-for="order in order_by" :key="order.id" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname" :email="order.customer.email"
+    <!-- key se perde no número 70 pois o order está triplicado-->
+    <linha v-for="order in order_by" :key="order.payments.id" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname" :email="order.customer.email"
       :esconde="visualiza"></linha>
 
-    <!-- footer criar -->
+    <!-- footer configurar ainda -->
+
+    <div id="line_separator" style="margin-top:2em;">
+
+    <m-footer></m-footer>
+    </div>
   </div>
 </template>
 
@@ -21,6 +27,7 @@
   import Header_table from '../shared/header_table/Header_table.vue'
   import Export_button from '../shared/export_button/Export_button.vue'
   import Hidden_button from '../shared/hidden_button/Hidden_button.vue'
+  import Footer from '../shared/footer/Footer.vue'
 
   export default {
     name: 'orderslist',
@@ -31,20 +38,22 @@
       'linha': Linha,
       'header-table': Header_table,
       'export-button': Export_button,
-      'hidden': Hidden_button
+      'hidden': Hidden_button,
+      'm-footer': Footer
     },
     data() {
       return {
         orders: [],
         table_ordenacao: 'asc',
         table_campo: 'amount.total',
-        visualiza: true
+        visualiza: true,
+        limite: 1000
       }
     },
 
     created() {
 
-      this.$http.get('https://sandbox.moip.com.br/v2/orders', {
+      this.$http.get(`https://sandbox.moip.com.br/v2/orders?filters=&limit=${this.limite}`, {
           headers: {
             Authorization: 'OAuth dd367807ccfa4c44a4e74fa35f8c04b5_v2'
           }
@@ -68,28 +77,24 @@
       visualizar() {
         const { value } = this.$store.state.estado_cliente
         this.visualiza = value
+      },
+
+      valorTotal(){
+
       }
     }
 
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-weight: normal;
-    text-align: center;
-  }
-
   .container {
     width: 80%;
     margin-top: 1em;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
   }
 
   #line_separator {
@@ -99,15 +104,16 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    margin-top: 6em;
+    margin-top: 5em;
   }
 
   @media(min-width: 600px) {
     .container {
       width: 80%;
-      margin-top: 5%;
+      margin-top: 3.5%;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: auto;
     }
   }
 
@@ -125,7 +131,7 @@
       border-top: none;
       border-left: none;
       border-right: none;
-      margin-top: 2em;
+      margin-top: 0.4em;
       float: left;
     }
   }

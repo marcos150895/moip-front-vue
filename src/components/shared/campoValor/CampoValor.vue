@@ -25,7 +25,9 @@
     margin-bottom: 1em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    font-weight: bold;
     text-align: left;
+    margin-top: 12%;
   }
 
   @media(min-width: 600px) {
@@ -38,11 +40,13 @@
   @media(min-width: 600px) {
     #texto {
       font-size: 1em;
+      font-weight: bold;
       margin-bottom: 1em;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-align: left;
       float: left;
+      margin-top: 1%;
     }
   }
 </style>

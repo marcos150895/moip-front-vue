@@ -22,9 +22,11 @@
       <br>
     </div>
     <!-- componente  hidden do botão esconder cliente-->
-    <div id="cliente" class="linha" v-if="esconde">
-      <cliente :nome="nome" :email="email"></cliente>
-    </div>
+    <transition name="cliente-fade">
+      <div id="cliente" class="linha" v-if="esconde">
+        <cliente :nome="nome" :email="email"></cliente>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -48,11 +50,15 @@
       //fazer metodos para saber qual icone pelo status (agora fazer no componente de icone)
       formatarData() {
         return `${this.atualizado.substring(8,10)}/${this.atualizado.substring(5,7)}/${this.atualizado.substring(2,4)}
-               - ${this.atualizado.substring(11,13)}h${this.atualizado.substring(14,16)}`;
+                                 - ${this.atualizado.substring(11,13)}h${this.atualizado.substring(14,16)}`;
       },
 
       formatarAmount() {
-        return `${this.valor}`;
+        let aux = this.valor + "";
+        if (aux.length <= 2)
+          return `0,${aux.substring(0,2)}`;
+        let fim = aux.length - 2;
+        return `${aux.substring(0,fim)},${aux.substring(fim)}`;
       }
     }
   }
@@ -68,10 +74,6 @@
     min-width: 200px;
     padding: 10px;
     font-size: 0.9em;
-  }
-
-  .linha {
-    min-width: 12em;
   }
 
   .alinhar_esquerda {
@@ -99,11 +101,6 @@
     margin-left: 1.5em;
   }
 
-  #linha_tabela #atualizado {
-    margin-left: 1em;
-    float: left;
-  }
-
   #linha_tabela #cliente {
     width: 87%;
     margin-left: 1em;
@@ -116,8 +113,11 @@
     line-height: 150%;
   }
 
+  #linha_tabela #atualizado {
+    float: left;
+  }
+
   @media (min-width: 600px) {
-    #linha_tabela,
     #linha_tabela #codigo,
     #linha_tabela #meio_pagamento,
     #linha_tabela #valor,
@@ -159,6 +159,7 @@
   @media(min-width: 600px) {
     #linha_tabela #meio_pagamento {
       margin-left: 1em;
+      width: 5%;
     }
   }
 
@@ -198,5 +199,19 @@
       margin-right: 1em;
       float: left;
     }
+  }
+
+  @media(min-width:400px) {
+    .linha {
+      min-width: 12em;
+    }
+  }
+
+  #linha_tabela #cliente,
+  .cliente-fade-leave-active {
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
   }
 </style>

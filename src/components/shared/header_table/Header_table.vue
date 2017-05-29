@@ -2,51 +2,52 @@
   <div id="linha_tabela">
     <div id="status">
       <a @click="ordenar('status')" class="ponteiro"> Status </a>
-     </div>
+    </div>
     <div id="codigo" class="linha alinhar_esquerda">
-       <a @click="ordenar('id')" class="ponteiro"> Código </a>
+      <a @click="ordenar('id')" class="ponteiro"> Código </a>
     </div>
     <div id="icone_pag" class="">
-       <a @click="ordenar('payments[0].fundingInstrument.method')" class="ponteiro"> Meio </a>
+      <a @click="ordenar('payments[0].fundingInstrument.method')" class="ponteiro"> Meio </a>
     </div>
-    <div id="meio_pagamento" class="linha ">
-       <a @click="ordenar('amount.total')" class="ponteiro"> R$ </a>
-    </div>
-    <div id="atualizado" class="linha">
-      <a @click="ordenar('updatedAt')" class="ponteiro"> atualizado </a>
+    <div id="meio_pagamento" class="">
+      <a @click="ordenar('amount.total')" class="ponteiro"> R$ </a>
     </div>
     <div id="atualizado" class="linha">
+      <a @click="ordenar('updatedAt')" class="ponteiro"> Atualizado </a>
+    </div>
+    <div id="cliente" class="linha">
       <a @click="ordenar('customer.fullname')" class="ponteiro"> Cliente </a>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+  export default {
 
-  name: 'headerTable',
+    name: 'headerTable',
 
-  methods: {
+    methods: {
 
-    ordenar(event) {
-      const { table_ordenacao, table_campo } = this.$store.state.ordenacao
-      this.aux = table_ordenacao == 'desc' ? 'asc' : 'desc';
-      console.log(this.aux);
+      ordenar(event) {
+        const {
+          table_ordenacao,
+          table_campo
+        } = this.$store.state.ordenacao
+        this.aux = table_ordenacao == 'desc' ? 'asc' : 'desc';
+        console.log(this.aux);
 
-      const payload = {
-        table_ordenacao: this.aux,
-        table_campo: event
+        const payload = {
+          table_ordenacao: this.aux,
+          table_campo: event
+        }
+        this.$store.commit('CHANGE_ORDENATION', payload)
+        this.$emit('ordenar-tabela', event);
       }
-      this.$store.commit('CHANGE_ORDENATION', payload)
-      this.$emit('ordenar-tabela', event);
     }
   }
-}
 </script>
 
 <style scoped>
-
-
   .linha {
     min-width: 8em;
   }
@@ -55,20 +56,20 @@ export default {
     margin-left: 2em;
   }
 
-  .ponteiro{
+  .ponteiro {
     cursor: pointer;
   }
 
   @media(max-width: 600px) {
     #linha_tabela {
-      display:none ;
+      display: none;
     }
   }
 
   @media (min-width: 600px) {
     #linha_tabela,
     #linha_tabela #codigo,
-    #linha #meio_pagamento,
+    #linha_tabela #meio_pagamento,
     #linha_tabela #atualizado,
     #linha_tabela #status,
     #linha_tabela #icone_pag,
@@ -92,7 +93,7 @@ export default {
   @media (min-width: 600px) {
     #linha_tabela #cliente {
       width: 10%;
-      margin-left: 1em;
+      margin-left: 5em;
       padding-left: 1em;
       padding-right: 1em;
     }
@@ -100,8 +101,9 @@ export default {
 
   @media(min-width: 600px) {
     #linha_tabela #meio_pagamento {
-      width: 3%;
-      margin-left: 0.5em;
+      width: 2%;
+      min-width: 3em;
+      margin-left: 1em;
       float: left;
     }
   }
@@ -126,4 +128,15 @@ export default {
     }
   }
 
+  @media(min-width: 600px) {
+    #linha_tabela #status a:hover,
+    #linha_tabela #codigo a:hover,
+    #linha_tabela #meio_pagamento a:hover,
+    #linha_tabela #atualizado a:hover,
+    #linha_tabela #icone_pag a:hover,
+    #linha_tabela #cliente a:hover {
+      color: #283593;
+      font-size: 1.1em;
+    }
+  }
 </style>
