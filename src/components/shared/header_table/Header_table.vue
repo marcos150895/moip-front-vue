@@ -48,95 +48,48 @@
 </script>
 
 <style scoped>
-  .linha {
-    min-width: 8em;
-  }
-
-  .alinhar_esquerda {
-    margin-left: 2em;
+  #linha_tabela {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .ponteiro {
     cursor: pointer;
   }
 
-  @media(max-width: 600px) {
-    #linha_tabela {
-      display: none;
-    }
-  }
 
-  @media (min-width: 600px) {
-    #linha_tabela,
-    #linha_tabela #codigo,
-    #linha_tabela #meio_pagamento,
-    #linha_tabela #atualizado,
-    #linha_tabela #status,
-    #linha_tabela #icone_pag,
-    #linha_tabela #cliente {
-      float: left;
+    @media(max-width: 600px) {
+      #linha_tabela {
+        display: none;
+      }
     }
-  }
 
-  @media (min-width: 600px) {
-    #linha_tabela {
-      margin-top: 1em;
-      color: white;
-      width: 100%;
-      height: 16%;
-      line-height: 100%;
-      min-width: 300px;
-      float: left;
-    }
-  }
 
-  @media (min-width: 600px) {
-    #linha_tabela #cliente {
-      width: 10%;
-      margin-left: 5em;
-      padding-left: 1em;
-      padding-right: 1em;
+    @media (min-width: 600px) {
+      #linha_tabela {
+        margin-top: 1em;
+        color: white;
+        width: 100%;
+        height: 16%;
+      }
     }
-  }
 
-  @media(min-width: 600px) {
-    #linha_tabela #meio_pagamento {
-      width: 2%;
-      min-width: 3em;
-      margin-left: 1em;
-      float: left;
+    @media (min-width: 600px) {
+      #linha_tabela #cliente {
+        width: 25em;
+      }
     }
-  }
 
-  @media(min-width: 600px) {
-    #linha_tabela #valor {
-      width: 10%;
-      margin-left: 1.5em;
+    @media(min-width: 600px) {
+      #linha_tabela #status a:hover,
+      #linha_tabela #codigo a:hover,
+      #linha_tabela #meio_pagamento a:hover,
+      #linha_tabela #atualizado a:hover,
+      #linha_tabela #icone_pag a:hover,
+      #linha_tabela #cliente a:hover {
+        color: #283593;
+        font-size: 1.1em;
+      }
     }
-  }
-
-  @media(min-width: 600px) {
-    #linha_tabela #atualizado {
-      width: 10%;
-    }
-  }
-
-  @media(min-width: 600px) {
-    #linha_tabela #status {
-      width: 6%;
-      padding-left: 1em;
-    }
-  }
-
-  @media(min-width: 600px) {
-    #linha_tabela #status a:hover,
-    #linha_tabela #codigo a:hover,
-    #linha_tabela #meio_pagamento a:hover,
-    #linha_tabela #atualizado a:hover,
-    #linha_tabela #icone_pag a:hover,
-    #linha_tabela #cliente a:hover {
-      color: #283593;
-      font-size: 1.1em;
-    }
-  }
 </style>

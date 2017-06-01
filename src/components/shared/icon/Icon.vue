@@ -83,8 +83,7 @@
 
   @media (min-width: 600px) {
     .estilo {
-      float: left;
-      margin-top: 1.25em;
+
     }
   }
 

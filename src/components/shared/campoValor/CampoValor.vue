@@ -16,10 +16,6 @@
 </script>
 
 <style scoped>
-  .container {
-    width: 80%;
-  }
-
   #texto {
     font-size: 1em;
     margin-bottom: 1em;
@@ -28,13 +24,6 @@
     font-weight: bold;
     text-align: left;
     margin-top: 12%;
-  }
-
-  @media(min-width: 600px) {
-    .container {
-      float: left;
-      width: 60%;
-    }
   }
 
   @media(min-width: 600px) {

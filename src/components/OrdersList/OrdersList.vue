@@ -1,45 +1,33 @@
 <template>
   <div class="container">
-    <campo-valor :argumento1="orders.orders.length" argumento2="123.00"></campo-valor>
-    <export-button></export-button>
-    <hidden v-on:esconder="visualizar" class="hidden"></hidden>
-    <div id="line_separator">
-    </div>
+    <m-header v-on:esconder-="visualizar"></m-header>
+    <div id="line_separator"></div>
     <header-table v-on:ordenar-tabela="ordenar_tabela"></header-table>
-
     <!-- key é obrigatorio pois é chave unic para o vfor-->
     <!-- key se perde no número 70 pois o order está triplicado-->
-    <linha v-for="order in order_by" :key="order.payments.id" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname" :email="order.customer.email"
-      :esconde="visualiza"></linha>
-
+    <linha v-for="order in order_by" :key="order.payments.id" :status="order.status" :codigo="order.id" :meio_pagamento="order.payments[0].fundingInstrument.method" :valor="order.amount.total" :atualizado="order.updatedAt" :nome="order.customer.fullname"
+      :email="order.customer.email" :esconde="visualiza"></linha>
     <!-- footer configurar ainda -->
-
     <div id="line_separator" style="margin-top:2em;">
-
-    <m-footer></m-footer>
+      <m-footer></m-footer>
     </div>
   </div>
 </template>
 
 <script>
-  import CampoValor from '../shared/campoValor/CampoValor.vue';
   import Linha from '../shared/linha/Linha.vue'
   import Header_table from '../shared/header_table/Header_table.vue'
-  import Export_button from '../shared/export_button/Export_button.vue'
-  import Hidden_button from '../shared/hidden_button/Hidden_button.vue'
+  import Header from '../shared/header/Header.vue'
   import Footer from '../shared/footer/Footer.vue'
 
   export default {
     name: 'orderslist',
 
     components: {
-
-      'campo-valor': CampoValor,
       'linha': Linha,
       'header-table': Header_table,
-      'export-button': Export_button,
-      'hidden': Hidden_button,
-      'm-footer': Footer
+      'm-footer': Footer,
+      'm-header': Header
     },
     data() {
       return {
@@ -70,16 +58,20 @@
 
     methods: {
       ordenar_tabela() {
-        const { table_ordenacao, table_campo } = this.$store.state.ordenacao
+        const {
+          table_ordenacao,
+          table_campo
+        } = this.$store.state.ordenacao
         this.table_ordenacao = table_ordenacao
         this.table_campo = table_campo
       },
       visualizar() {
-        const { value } = this.$store.state.estado_cliente
+        const {
+          value
+        } = this.$store.state.estado_cliente
         this.visualiza = value
       },
-
-      valorTotal(){
+      valorTotal() {
 
       }
     }
@@ -118,12 +110,6 @@
   }
 
   @media(min-width: 600px) {
-    .container .hidden {
-      display: none;
-    }
-  }
-
-  @media(min-width: 600px) {
     #line_separator {
       width: 100%;
       border-bottom-color: white;
@@ -132,7 +118,6 @@
       border-left: none;
       border-right: none;
       margin-top: 0.4em;
-      float: left;
     }
   }
 </style>

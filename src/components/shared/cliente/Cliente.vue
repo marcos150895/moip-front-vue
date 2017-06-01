@@ -1,13 +1,15 @@
 <template>
-  <div class="container">
+  <div class="container-cliente">
     <div class="imagem">
       {{formatarSigla}}
     </div>
-    <div class="detalhes">
-      {{formatarNome}}
-    </div>
-    <div class="email">
-      {{formatarEmail}}
+    <div class="cliente-detalhes">
+      <div class="detalhes">
+        {{formatarNome}}
+      </div>
+      <div class="email">
+        {{formatarEmail}}
+      </div>
     </div>
 
   </div>
@@ -30,9 +32,9 @@
         return `${this.email.substring(0, 18)}..`;
       },
 
-      formatarSigla(){
+      formatarSigla() {
         let aux = this.nome.split(" ");
-        if(aux.length >1)
+        if (aux.length > 1)
           return `${aux[0].substring(0,1)}${aux[1].substring(0,1)}`;
         return `${aux[0].substring(0,1)}`;
       }
@@ -41,11 +43,15 @@
 </script>
 
 <style scoped>
-  .container {
-    height: 3em;
+  .container-cliente {
+    width: 25em;
   }
 
-  .container .imagem {
+  .container-cliente .cliente-detalhes{
+    width: 15em;
+  }
+
+  .container-cliente .imagem {
     border-radius: 50%;
     background-position: -10px -10px;
     height: 2.0em;
@@ -65,7 +71,7 @@
     text-transform: uppercase;
   }
 
-  .container .detalhes {
+  .container-cliente .detalhes {
     font-size: 0.8em;
     margin-left: 3.5em;
     letter-spacing: 0.2em;
@@ -73,7 +79,7 @@
     font-weight: bold;
   }
 
-  .container .email {
+  .container-cliente .email {
     font-size: 0.8em;
     margin-left: 3.5em;
     letter-spacing: 0.1em;
@@ -81,39 +87,42 @@
   }
 
   @media (min-width: 600px) {
-    .container .detalhes {
+    .container-cliente {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .container-cliente .detalhes {
       font-size: 0.8em;
-      line-height: 300%;
-      margin-left: 18%;
       text-transform: uppercase;
       letter-spacing: 0.2em;
+      margin-left: 1.2em;
     }
   }
 
   @media (min-width: 600px) {
-    .container .email {
+    .container-cliente .email {
       font-size: 0.8em;
-      line-height: 0%;
-      margin-left: 18%;
       letter-spacing: 0.1em;
+      margin-left: 1.2em;
     }
   }
 
   @media (min-width: 600px) {
-    .container .detalhes .inicial {
+    .container-cliente .detalhes .inicial {
       text-align: center;
     }
   }
 
   @media (min-width: 600px) {
-    .container .imagem {
+    .container-cliente .imagem {
       height: 3em;
       width: 3em;
       margin-top: 0.2em;
       text-align: center;
       line-height: 3.0em;
       font-size: 1.0em;
-      float: left;
       border-radius: 50%;
       background-position: -10px -10px;
       background-color: purple;
