@@ -52,44 +52,32 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 1em;
+    color: #fff;
   }
 
   .ponteiro {
     cursor: pointer;
   }
 
-
-    @media(max-width: 600px) {
-      #linha_tabela {
-        display: none;
-      }
+  @media(max-width: 600px) {
+    #linha_tabela {
+      display: none;
     }
-
-
-    @media (min-width: 600px) {
-      #linha_tabela {
-        margin-top: 1em;
-        color: white;
-        width: 100%;
-        height: 16%;
-      }
+    #linha_tabela #icone_pag {
+      margin-left: 3em;
     }
+  }
 
-    @media (min-width: 600px) {
-      #linha_tabela #cliente {
-        width: 25em;
-      }
+  @media(min-width: 600px) {
+    #linha_tabela #status a:hover,
+    #linha_tabela #codigo a:hover,
+    #linha_tabela #meio_pagamento a:hover,
+    #linha_tabela #atualizado a:hover,
+    #linha_tabela #icone_pag a:hover,
+    #linha_tabela #cliente a:hover {
+      color: #283593;
+      font-size: 1.05em;
     }
-
-    @media(min-width: 600px) {
-      #linha_tabela #status a:hover,
-      #linha_tabela #codigo a:hover,
-      #linha_tabela #meio_pagamento a:hover,
-      #linha_tabela #atualizado a:hover,
-      #linha_tabela #icone_pag a:hover,
-      #linha_tabela #cliente a:hover {
-        color: #283593;
-        font-size: 1.1em;
-      }
-    }
+  }
 </style>

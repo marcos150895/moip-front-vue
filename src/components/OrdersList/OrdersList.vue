@@ -35,7 +35,7 @@
         table_ordenacao: 'asc',
         table_campo: 'amount.total',
         visualiza: true,
-        limite: 1000
+        limite: 10
       }
     },
 
@@ -96,7 +96,7 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    margin-top: 5em;
+    margin-top: 0.5em;
   }
 
   @media(min-width: 600px) {
@@ -107,9 +107,6 @@
       margin-right: auto;
       margin-bottom: auto;
     }
-  }
-
-  @media(min-width: 600px) {
     #line_separator {
       width: 100%;
       border-bottom-color: white;

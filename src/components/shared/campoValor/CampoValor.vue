@@ -22,7 +22,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
     margin-top: 12%;
   }
 

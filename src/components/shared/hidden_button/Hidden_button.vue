@@ -46,21 +46,17 @@
 </script>
 
 <style scoped>
-  .ponteiro {
-    cursor: pointer;
+  .container-hidden {
+    display: flex;
+    align-items: center;
   }
 
-  .container-hidden .imagem {
-    float: left;
+  .ponteiro {
+    cursor: pointer;
   }
 
   .container-hidden .imagem img {
     width: 30px;
     height: 30px;
-  }
-
-  .container-hidden .texto {
-    float: left;
-    margin-top: 0.3em;
   }
 </style>

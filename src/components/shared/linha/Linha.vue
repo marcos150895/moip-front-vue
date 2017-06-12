@@ -50,7 +50,7 @@
 
       formatarData() {
         return `${this.atualizado.substring(8,10)}/${this.atualizado.substring(5,7)}/${this.atualizado.substring(2,4)}
-                                       - ${this.atualizado.substring(11,13)}h${this.atualizado.substring(14,16)}`;
+                                         - ${this.atualizado.substring(11,13)}h${this.atualizado.substring(14,16)}`;
       },
 
       formatarAmount() {
@@ -80,8 +80,6 @@
     margin-left: 5%;
   }
 
-  #linha_tabela #status {}
-
   #linha_tabela #codigo {
     margin-left: 1em;
     float: left;
@@ -103,7 +101,7 @@
 
   #linha_tabela #cliente {
     width: 87%;
-    margin-left: 1em;
+    margin-left: 0.5em;
     border-top-color: rgba(137, 76, 171, 0.5);
     border-style: dotted;
     border-left: none;
@@ -118,16 +116,6 @@
   }
 
   @media (min-width: 600px) {
-    #linha_tabela #codigo,
-    #linha_tabela #meio_pagamento,
-    #linha_tabela #valor,
-    #linha_tabela #atualizado,
-    #linha_tabela #cliente {
-      float: left;
-    }
-  }
-
-  @media (min-width: 600px) {
     #linha_tabela {
       margin-top: 1em;
       background-color: white;
@@ -139,9 +127,6 @@
       align-items: center;
       justify-content: space-between;
     }
-  }
-
-  @media (min-width: 600px) {
     #linha_tabela #cliente {
       margin-left: 1em;
       border-left-color: rgba(137, 76, 171, 0.5);
@@ -152,45 +137,24 @@
       padding-left: 1em;
       padding-right: 1em;
     }
-  }
-
-  @media(min-width: 600px) {
     #linha_tabela #meio_pagamento {
       margin-left: 1em;
     }
-  }
-
-  @media(min-width: 600px) {
     #linha_tabela #valor {
       margin-left: 1.5em;
     }
-  }
-
-  @media(min-width: 600px) {
     #linha_tabela #atualizado {
       margin-left: 1em;
     }
-  }
-
-  @media(min-width: 600px) {
     #linha_tabela #status {
       padding-left: 1em;
     }
-  }
-
-  @media(min-width: 600px) {
     #linha_tabela #habilitado_br {
       display: none;
     }
-  }
-
-  @media(min-width: 600px) {
     .alinhar_esquerda {
       margin-left: 1%;
     }
-  }
-
-  @media(min-width: 600px) {
     #linha_tabela #codigo {
       margin-left: 1em;
       margin-right: 1em;

@@ -44,10 +44,11 @@
 
 <style scoped>
   .container-cliente {
-    width: 25em;
+    display: flex;
+    margin-top: 0.5em;
   }
 
-  .container-cliente .cliente-detalhes{
+  .container-cliente .cliente-detalhes {
     width: 15em;
   }
 
@@ -57,11 +58,10 @@
     height: 2.0em;
     width: 2.0em;
     background-color: purple;
-    margin-top: 0.2em;
+    margin-top: 0.3em;
     text-align: center;
     line-height: 2.2em;
     font-size: 1.0em;
-    float: left;
     background: -webkit-linear-gradient(left, rgba(148, 0, 211, 1), rgba(138, 43, 226, 0.6));
     background: -o-linear-gradient(left, rgba(148, 0, 211, 1), rgba(138, 43, 226, 0.6));
     background: -moz-linear-gradient(right, rgba(148, 0, 211, 1), rgba(138, 43, 226, 0.6));
@@ -73,49 +73,35 @@
 
   .container-cliente .detalhes {
     font-size: 0.8em;
-    margin-left: 3.5em;
+    margin-left: 0.7em;
     letter-spacing: 0.2em;
-    margin-top: 0.3em;
     font-weight: bold;
   }
 
   .container-cliente .email {
     font-size: 0.8em;
-    margin-left: 3.5em;
+    margin-left: 0.7em;
     letter-spacing: 0.1em;
     line-height: 1.2em;
   }
 
-  @media (min-width: 600px) {
+  @media(min-width: 600px) {
     .container-cliente {
-      display: flex;
+      margin-top: 0em;
     }
-  }
-
-  @media (min-width: 600px) {
     .container-cliente .detalhes {
       font-size: 0.8em;
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      margin-left: 1.2em;
+      margin-top: 0.3em;
     }
-  }
-
-  @media (min-width: 600px) {
     .container-cliente .email {
       font-size: 0.8em;
       letter-spacing: 0.1em;
-      margin-left: 1.2em;
     }
-  }
-
-  @media (min-width: 600px) {
     .container-cliente .detalhes .inicial {
       text-align: center;
     }
-  }
-
-  @media (min-width: 600px) {
     .container-cliente .imagem {
       height: 3em;
       width: 3em;

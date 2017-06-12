@@ -43,19 +43,19 @@
 
 
 
-<style lang="">
+<style scoped>
   .container-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
   }
 
   @media(min-width: 600px) {
     .container-header {
-      display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-direction: initial;
     }
-  }
-
-  @media(min-width: 600px) {
     .hidden {
       display: none;
     }
